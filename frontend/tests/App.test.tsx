@@ -20,6 +20,13 @@ vi.mock('../src/services/health', () => ({
   }),
 }));
 
+vi.mock('../src/services/repositories', () => ({
+  fetchRepositories: vi.fn().mockResolvedValue([]),
+  fetchRepository: vi.fn().mockResolvedValue(null),
+  fetchRepositoryFiles: vi.fn().mockResolvedValue({ repository_id: '', file_count: 0, files: [] }),
+  ingestRepository: vi.fn().mockResolvedValue({}),
+}));
+
 describe('RepoLens AI Application', () => {
   it('renders application brand and navigation shell', async () => {
     render(<App />);

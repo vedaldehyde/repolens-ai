@@ -99,11 +99,11 @@ export const Sidebar: React.FC = () => {
       <div className="p-3 rounded-lg bg-dev-card border border-dev-border text-xs space-y-1 font-mono">
         <div className="flex items-center justify-between text-dev-muted">
           <span>Architecture:</span>
-          <span className="text-white font-semibold">Phase 1</span>
+          <span className="text-white font-semibold">Phase 2</span>
         </div>
         <div className="flex items-center justify-between text-dev-muted">
-          <span>Orchestration:</span>
-          <span className="text-sky-400">LangGraph</span>
+          <span>Ingestion:</span>
+          <span className="text-emerald-400">Git CLI Active</span>
         </div>
       </div>
     </aside>

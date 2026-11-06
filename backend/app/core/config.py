@@ -37,7 +37,13 @@ class Settings(BaseSettings):
     REPOS_DIR: str = Field(default="data/repos", description="Directory to store cloned repositories")
     CHROMA_PERSIST_DIR: str = Field(default="data/chroma", description="ChromaDB persistence folder")
 
-    # LLM & AI Engine settings (Configurable for Phase 2+)
+    # Ingestion & Git Security Limits (Phase 2)
+    CLONE_TIMEOUT_SECONDS: int = Field(default=60, description="Git clone timeout in seconds")
+    MAX_REPO_SIZE_MB: int = Field(default=150, description="Maximum allowed repository disk size in megabytes")
+    MAX_FILE_SIZE_BYTES: int = Field(default=500 * 1024, description="Maximum single file size to scan (500 KB)")
+    ALLOWED_GIT_HOSTS: List[str] = Field(default=["github.com"], description="Whitelisted Git hosting domains")
+
+    # LLM & AI Engine settings (Configurable for Phase 3+)
     GROQ_API_KEY: str = Field(default="", description="Groq API Key")
     GROQ_MODEL: str = Field(default="llama-3.3-70b-versatile", description="Groq model ID")
     EMBEDDING_MODEL_NAME: str = Field(default="all-MiniLM-L6-v2", description="SentenceTransformers model name")

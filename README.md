@@ -90,10 +90,29 @@ repolens-ai/
 | **AI Orchestration** | LangGraph *(Phase 4)* |
 | **LLM Provider** | Groq API (`llama-3.3-70b-versatile`) *(Phase 4)* |
 | **Embeddings & DB** | SentenceTransformers (`all-MiniLM-L6-v2`), ChromaDB *(Phase 3)* |
-| **Code Parsing** | Python AST *(Phase 2)*, Tree-sitter *(Phase 2+)* |
-| **Repository Management** | Git CLI *(Phase 2)* |
+| **Code Parsing** | Python AST *(Phase 3)*, Tree-sitter *(Phase 3+)* |
+| **Repository Management** | Git CLI *(Implemented - Phase 2)* |
 | **Agent Protocol** | FastMCP *(Phase 5)* |
 | **Testing** | Pytest + pytest-asyncio + HTTPX (backend), Vitest + React Testing Library (frontend) |
+
+---
+
+## 📡 API Endpoints
+
+### System & Diagnostics
+- `GET /api/health`: System status, version, uptime, and storage diagnostics.
+
+### Repository Ingestion & Inspection (Phase 2)
+- `POST /api/repositories`: Ingest a public GitHub repository.
+  ```json
+  {
+    "github_url": "https://github.com/psf/requests",
+    "branch": "main" // Optional
+  }
+  ```
+- `GET /api/repositories`: List all previously ingested repositories.
+- `GET /api/repositories/{repository_id}`: Retrieve repository metadata, commit SHA, file count, detected languages, and README status.
+- `GET /api/repositories/{repository_id}/files`: Retrieve all discovered source code and documentation files.
 
 ---
 
